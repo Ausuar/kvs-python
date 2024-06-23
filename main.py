@@ -8,6 +8,7 @@ DB = {}
 class DictItem(BaseModel):
     key: str
     value: str
+    lkl: str | None
 
 
 @app.get("/items", response_model=DictItem)
