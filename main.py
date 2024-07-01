@@ -1,14 +1,14 @@
-from fastapi import FastAPI,HTTPException 
-from pydantic import BaseModel
-from fastapi.testclient import TestClient
+from fastapi import FastAPI,HTTPException #载入FastAPI,HTTPException模块
+from pydantic import BaseModel#载入BaseModel模块
+from fastapi.testclient import TestClient#载入TestClient模块用于测试
 
-app = FastAPI()
-DB = {}
-class DictItem(BaseModel):
+app = FastAPI()#创造一个fastapi实例
+DB = {}#创建一个空字典
+class DictItem(BaseModel):#创建一个DicIetm类，key和value元素为字符串类型
     key: str
     value: str
 
-@app.get("/items", response_model=DictItem)
+@app.get("/items", response_model=DictItem)#创建一个路径为/items的get方法
 def get_key(key: str):
     value = DB.get(key)#获取key对应的value
     if value is None:#如果key不在就返回404，并报key is not found
