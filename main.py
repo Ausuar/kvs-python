@@ -2,15 +2,15 @@ from fastapi import FastAPI,HTTPException #载入FastAPI,HTTPException模块
 from pydantic import BaseModel#载入BaseModel模块
 from fastapi.testclient import TestClient#载入TestClient模块用于测试
 import json
-
+#王的代码
 app = FastAPI()#创造一个fastapi实例
 DB = {}#创建一个空字典
 db_filename = "db.json"
 
 def load_db():
-    try:
-        with open(db_filename, "r") as f:
-            return json.load(f)
+    try:#和except为一组，try有问题就报except的错误
+        with open(db_filename, "r") as f:#用读的形式将db_filename文件打开
+            return json.load(f)#
     except FileNotFoundError:
         return {}
 
