@@ -1,11 +1,9 @@
-from fastapi import FastAPI,HTTPException #载入FastAPI,HTTPException模块
-from pydantic import BaseModel#载入BaseModel模块
-from fastapi.testclient import TestClient#载入TestClient模块用于测试
-app = FastAPI()#创造一个fastapi实例
-class DictItem(BaseModel):#创建一个DicIetm类，key和value元素为字符串类型
-    key: str
-    value: str
-def test_item(main):
+from fastapi.testclient import TestClient
+from main import app, load_db, DB,DictItem # 确保从main模块导入所需的组件
+
+# 创建一个测试客户端实例
+client = TestClient(app)
+def test_item():
     client = TestClient(app)
     #获取空表
     response = client.get("/items",params={"key":"foo"})#从get中获取信息
