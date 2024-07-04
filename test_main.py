@@ -1,7 +1,6 @@
 from fastapi.testclient import TestClient
-from main import app, load_db, DB,DictItem # 确保从main模块导入所需的组件
+from main import app, load_db, DB,DictItem 
 
-# 创建一个测试客户端实例
 client = TestClient(app)
 def test_item():
     client = TestClient(app)
