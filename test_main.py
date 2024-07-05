@@ -1,7 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app, load_db, DB,DictItem 
 
-client = TestClient(app)
 def test_item():
     client = TestClient(app)
     #获取空表
