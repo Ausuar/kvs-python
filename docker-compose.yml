@@ -1,4 +1,4 @@
-version: '3.8'  # 指定 Docker Compose 文件的版本
+version: '2.28.1'  # 指定 Docker Compose 文件的版本
 services:
   postgres:
     image: postgres:latest  # 使用官方的 PostgreSQL 镜像
